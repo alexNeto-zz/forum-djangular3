@@ -4,6 +4,7 @@ angular.module('appapi').factory('AppApi', function(AppAjax){
 	var api = {
 		add: todo,
 		login: login,
+		singup: singup,
 		logout: logout,
 		whoami: whoami,
 		list_cameras: list_cameras,

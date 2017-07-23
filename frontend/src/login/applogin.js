@@ -21,7 +21,6 @@ angular.module('applogin').factory('AppLoginModel', function(AppAuth, AppApi, $s
 		}).finally(function(){
 			m.loading = false;
 		});
-	}
 
 	return m;
 });

@@ -2,14 +2,29 @@ import json
 from django.http.response import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import auth
+from django.contrib.auth.models import User
 from cameras.models import Camera
+from cameras.models import NovoUser
 from cameras.decorators import ajax_login_required
 
 def singup(request):
-    firstname = request
+    firstname = request.POST['firstname']
+    lastname = request.POST['lastname']
+    email = request.POST['email']
+    password = request.POST['password']
+    adm = request.POST['adm']
     username = request.POST['username']
+    user = User.objects.create_user()
+    user.first_name = firstname
+    user.last_name = lastname
+    user.username = username
+    user.password = password
+    user.email = email
+    user.save()
+
 
 def login(request):
+
     username = request.POST['username']
     password = request.POST['password']
     user = auth.authenticate(username=username, password=password)

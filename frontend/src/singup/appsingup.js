@@ -8,6 +8,7 @@ angular.module('appsingup').factory('AppSingupModel', function(AppAuth, AppApi, 
 		email: '',
 		username: '',
 		password: '',
+		adm: false,
 		loading: false,
 		singup: singup,
 	};
@@ -15,19 +16,18 @@ angular.module('appsingup').factory('AppSingupModel', function(AppAuth, AppApi, 
 	function singup(){
 		outrom.loading = true;
 
-		AppApi.singup(outrom.firstname, outrom.lastname, outrom.email, outrom.username, outrom.password).then(function(result){
-			var logged_user = result.data;
-			if(logged_user){
+		AppApi.singup(outrom.adm, outrom.firstname, outrom.lastname, outrom.email, outrom.username, outrom.password).then(function(result){
+		//	var logged_user = result.data;
+
+			//if(logged_user){
 				AppAuth.set_user(result.data);
 				$state.go('home');
-			} else {
-				alert('wrong credentials');
-			}
-
+			//} else {
+				//alert('wrong credentials');
+			//}
 		}).finally(function(){
-			outrom.loading = false;
+			m.loading = false;
 		});
-
 	}
 
 	return outrom;

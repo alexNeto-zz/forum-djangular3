@@ -9,7 +9,7 @@
 		'appapi',
 		'cameras',
 		'appajax',
-		'appsingup'
+		'appsingup',
 	];
 	if(APP.USE_TEAMPLE_CACHE){
 		deps.push('apptemplates');
