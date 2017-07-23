@@ -14,6 +14,10 @@
 	<div>
 		<input type="password" placeholder="senha" ng-model="outrom.password">
 	</div>
+  <div>
+    Sou um administrador:
+    <input type="checkbox" ng-model="outrom.adm">
+  <br>
 	<button ng-click=outrom.singup()>criar conta</button>
-  <span ng-show="outrom.loading">loading...</span>
+  <span ng-show="!outrom.loading">loading...</span>
 </div>

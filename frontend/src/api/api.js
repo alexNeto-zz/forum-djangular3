@@ -12,8 +12,8 @@ angular.module('appapi').factory('AppApi', function(AppAjax){
 
 	function todo(){}
 
-	function singup(username, password){
-		return AppAjax.post('/api/singup', {username: username, password: password});
+	function singup(firstname, lastname, email, username, password){
+		return AppAjax.post('/api/singup', {firstname: firstname, lastname: lastname, email: email, username: username, password: password});
 	}
 
 	function login(username, password){

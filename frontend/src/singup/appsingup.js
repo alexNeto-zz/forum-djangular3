@@ -15,7 +15,7 @@ angular.module('appsingup').factory('AppSingupModel', function(AppAuth, AppApi, 
 	function singup(){
 		outrom.loading = true;
 
-		AppApi.singup(outrom.username, outrom.password).then(function(result){
+		AppApi.singup(outrom.firstname, outrom.lastname, outrom.email, outrom.username, outrom.password).then(function(result){
 			var logged_user = result.data;
 			if(logged_user){
 				AppAuth.set_user(result.data);

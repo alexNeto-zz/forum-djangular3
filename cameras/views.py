@@ -5,6 +5,10 @@ from django.contrib import auth
 from cameras.models import Camera
 from cameras.decorators import ajax_login_required
 
+def singup(request):
+    firstname = request
+    username = request.POST['username']
+
 def login(request):
     username = request.POST['username']
     password = request.POST['password']

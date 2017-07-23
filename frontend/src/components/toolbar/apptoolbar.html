@@ -13,7 +13,11 @@
       <ul class="nav navbar-nav">
         <!--<li ng-class="{active: $state.current.name == 'home'}"><a ui-sref="home">Home</a></li>-->
         <li ng-class="{active: $state.current.name == 'admin'}" ng-if="auth.has_permission('ADMIN')"><a ui-sref="admin">Admin</a></li>
-        <li ng-class="{active: $state.current.name == 'cameras'}"><a ui-sref="cameras">Cameras</a></li>
+        <li ng-class="{active: $state.current.name == 'cameras'}">
+          <a ng-show="auth.authenticated()" ui-sref="cameras">Cameras</a>
+          <a ng-show="!auth.authenticated()" ui-sref="singup">Cameras</a>
+
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a ui-sref="singup" ng-if="!auth.authenticated()">Sing up</a></li>
