@@ -12,6 +12,10 @@ angular.module('appapi').factory('AppApi', function(AppAjax){
 
 	function todo(){}
 
+	function singup(username, password){
+		return AppAjax.post('/api/singup', {username: username, password: password});
+	}
+
 	function login(username, password){
 		return AppAjax.post('/api/login', {username: username, password: password});
 	}
@@ -29,7 +33,7 @@ angular.module('appapi').factory('AppApi', function(AppAjax){
 	}
 
 	function get_user_details(username){
-		return AppAjax.get('/api/get_user_details', {username: username});	
+		return AppAjax.get('/api/get_user_details', {username: username});
 	}
 
 	return api;

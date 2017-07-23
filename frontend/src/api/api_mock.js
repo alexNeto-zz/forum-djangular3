@@ -7,6 +7,7 @@ angular.module('appapi').factory('AppApi', function($q, $timeout, $log){
 		whoami: _mockasync(whoami),
 		list_cameras: _mockasync(list_cameras),
 		get_user_details: _mockasync(get_user_details),
+		sinup: _mockasync(sinup),
 	};
 
 	var who = {
@@ -22,6 +23,22 @@ angular.module('appapi').factory('AppApi', function($q, $timeout, $log){
 		var newtodo = angular.copy(todo);
 		newtodo.id = Math.floor(Math.random() * 1E9);
 		return newtodo;
+	}
+
+	function singup(username, password){
+		var fakeuser = {
+			username: username,
+			name: 'Fake User',
+			permissions: {},
+		};
+		if(username == 'admin'){
+			fakeuser.permissions.ADMIN = true;
+		}
+		who = {
+			authenticated: true,
+			user: fakeuser,
+		};
+		return fakeuser;
 	}
 
 	function login(username, password){

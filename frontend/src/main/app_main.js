@@ -9,6 +9,7 @@
 		'appapi',
 		'cameras',
 		'appajax',
+		'appsingup'
 	];
 	if(APP.USE_TEAMPLE_CACHE){
 		deps.push('apptemplates');
@@ -24,6 +25,7 @@
 	        .state('admin', {url: '/admin', template: '<appadmin></appadmin>'})
 	        .state('cameras', {url: '/cameras', template: '<cameras></cameras>'})
 	        .state('login', {url: '/login', template: '<applogin></applogin>'})
+					.state('singup', {url: '/singup', template: '<appsingup></appsingup>'})
 	        .state('viewuser', {url: '/user/:login', template: '<appviewuser></appviewuser>', controller: 'ViewUserStateCtrl'})
 	});
 

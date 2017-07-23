@@ -6,7 +6,7 @@ angular.module('appauth').factory('AppAuth', function(AppApi){
 		authenticated: authenticated,
 		has_permission: has_permission,
 		set_user: set_user,
-		logout: logout,
+		logout: logout
 	};
 
 	function authenticated(){
