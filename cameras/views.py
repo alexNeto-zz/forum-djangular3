@@ -4,7 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import auth
 from django.contrib.auth.models import User
 from cameras.models import Camera
-from cameras.models import NovoUser
+from cameras.models import Pergunta
 from cameras.decorators import ajax_login_required
 
 def singup(request):

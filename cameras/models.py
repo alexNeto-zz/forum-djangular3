@@ -1,5 +1,5 @@
 from django.db import models
-
+#não vou usar
 class Camera(models.Model):
     name = models.CharField(max_length=256)
     address = models.CharField(max_length=2048)
@@ -8,14 +8,24 @@ class Camera(models.Model):
     	return {
     		'name': self.name,
     	}
-class NovoUser(models.Model):
-    firstname = models.CharField(max_length=30)
-    lastname = models.CharField(max_length=40)
-    email = models.EmailField()
-    username = models.CharField(max_length=30)
-    password = models.CharField(max_length=50)
+class Pergunta(models.Model):
+    idUser = models.IntegerField()
+    pergunta = models.TextField()
 
     def to_dict_json(self):
         return{
-        'firstname': self.firstname
+            'idUser': self.idUser,
+            'pergunta': self.pergunta
+        }
+
+class Resposta(models.Model):
+    idPergunta = models.IntegerField()
+    idUser = models.IntegerField()
+    resposta = models.TextField()
+
+    def to_dict_json(self):
+        return{
+            'idPergunta': self.idPergunta,
+            'idUser': self.idUser,
+            'resposta': self.resposta,
         }
