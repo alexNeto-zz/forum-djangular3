@@ -2,7 +2,10 @@
 angular.module('appsingup', ['appapi']);
 
 angular.module('appsingup').factory('AppSingupModel', function(AppAuth, AppApi, $state){
-	var m = {
+	var outrom = {
+		firstname: '',
+		lastname: '',
+		email: '',
 		username: '',
 		password: '',
 		loading: false,
@@ -10,8 +13,9 @@ angular.module('appsingup').factory('AppSingupModel', function(AppAuth, AppApi, 
 	};
 
 	function singup(){
-		m.loading = true;
-		AppApi.singup(m.username, m.password).then(function(result){
+		outrom.loading = true;
+
+		AppApi.singup(outrom.username, outrom.password).then(function(result){
 			var logged_user = result.data;
 			if(logged_user){
 				AppAuth.set_user(result.data);
@@ -19,13 +23,16 @@ angular.module('appsingup').factory('AppSingupModel', function(AppAuth, AppApi, 
 			} else {
 				alert('wrong credentials');
 			}
+
 		}).finally(function(){
-			m.loading = false;
+			outrom.loading = false;
 		});
+
 	}
 
-	return m;
+	return outrom;
 });
+
 
 angular.module('appsingup').directive('appsingup', function(){
 	return {
@@ -34,7 +41,7 @@ angular.module('appsingup').directive('appsingup', function(){
 		scope: {},
 		templateUrl: APP.BASE_URL+'singup/appsingup.html',
 		controller: function($scope, AppSingupModel){
-			$scope.m = AppSingupModel;
+			$scope.outrom = AppSingupModel;
 		},
 	};
 });
